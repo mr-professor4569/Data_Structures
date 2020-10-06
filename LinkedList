@@ -1,0 +1,220 @@
+#include <iostream> 
+using namespace std; 
+struct node 
+{ 
+    int data; 
+    node *next;
+}; 
+class linked_list 
+{ 
+    protected: 
+    node *head,*tail;
+    static int objects ;
+   
+    public: 
+linked_list() 
+{ 
+    head = NULL;
+    tail = NULL; 
+}
+node* gethead() 
+{ 
+return head;
+} 
+void front(int n) 
+{ 
+    node *tmp = new node;
+    tmp -> data = n;
+    tmp -> next = head; 
+    head = tmp; 
+    objects++;
+} 
+void after(node *a, int value)
+{ 
+    node* p = new node; 
+    p->data = value;
+    p->next = a->next;
+    a->next = p;
+    objects++;
+} 
+void last(int n) 
+{ 
+    node *tmp = new node;
+    tmp->data = n;
+    tmp->next = NULL; 
+    if(head == NULL) 
+    { 
+        head = tmp; 
+        tail = tmp; 
+    } 
+    else
+    { 
+        tail->next = tmp;
+        tail = tail->next;
+    }
+    objects++;
+} 
+void display_loop() 
+{ 
+    node *tmp;
+    tmp = head; 
+    while (tmp != NULL) 
+    { 
+        cout << tmp->data << endl;
+        tmp = tmp->next; 
+    } 
+    cout << "NULL\n" << endl; 
+} 
+    static void display_rec(node *head) 
+    { 
+       if(head == NULL) 
+      { 
+    cout << "NULL" << endl; 
+      } 
+        else 
+      { 
+    cout << head->data << endl;
+            display_rec(head->next);
+      } 
+    }        
+void del(node *before_del) 
+{ 
+    node* temp;
+    temp = before_del->next;
+    before_del->next = temp->next;
+    delete temp;
+    objects--;
+} 
+    void del_first() 
+    { 
+        if (head) 
+        { 
+            node* temp = head;
+            head = head->next;
+            delete temp; 
+        } 
+        objects--;
+    } 
+    void del_last() 
+    { 
+        node* prev; 
+        node* curr;
+        if (head==NULL)
+        { 
+// empty list 
+        } 
+            else if (head->next==NULL)
+            { 
+                curr = head;
+                head = NULL;
+                delete curr; 
+            }
+            else
+            { 
+            curr = head;
+            while(curr->next != NULL) 
+            { 
+                prev = curr; 
+                curr = curr->next;
+            } 
+            prev->next = NULL; 
+            delete curr;
+            }
+            objects--;
+    }
+    virtual void PUSH(int )
+    {
+        cout<<"PUSH  main";
+    }
+    virtual void POP()
+    {
+        cout << "POP main";
+    }
+    static void size( )
+    {
+        cout<<"The number of elements(size):" <<  objects << endl << endl ; 
+        objects=0;
+    } 
+}; 
+template <typename T>
+class LinkStack:public linked_list
+{
+  public:
+  void PUSH(T n)
+  {
+    node *tmp = new node;
+    tmp -> data = n;
+    tmp -> next = head; 
+    head = tmp; 
+    objects++;
+  }
+  void POP()
+   { 
+        if (head) 
+        { 
+            node* temp = head;
+            head = head->next;
+            delete temp; 
+        } 
+        objects--;
+    } 
+};
+template <typename X>
+class LinkQueue:public linked_list
+{
+  public:
+  void PUSH(X n)
+  {
+    node *tmp = new node;
+    tmp->data = n;
+    tmp->next = NULL; 
+    if(head == NULL) 
+    { 
+        head = tmp; 
+        tail = tmp; 
+    } 
+    else
+    { 
+        tail->next = tmp;
+        tail = tail->next;
+    }
+    objects++;
+  }
+  void POP()
+   { 
+        if (head) 
+        { 
+            node* temp = head;
+            head = head->next;
+            delete temp; 
+        } 
+        objects--;
+    } 
+};
+int linked_list::objects=0;
+
+int main() 
+{ 
+    linked_list *a;
+    LinkStack <int>s;
+    a=&s;                    //Polymorphism
+    a->last(1);
+    a->last(2); 
+    a->front(3);
+    a->front(4);
+    a->PUSH(2);
+    a->POP();
+    a->POP();
+    a->PUSH(3);
+    linked_list::display_rec(a->gethead()); 
+    a->size();
+    LinkQueue <int>q;
+    a=&q; //This is another list for Queue using linked list.
+    a->last(1);
+    a->front(1);
+    a->PUSH(3);
+    a->POP();
+    linked_list::display_rec(a->gethead()); 
+    a->size();
+    return 0; 
+} 
