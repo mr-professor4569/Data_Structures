@@ -16,12 +16,10 @@ main()
 			if(a[min]>a[j])
 			min=j;
 		}
-		if(min!=i)
-		{
-			temp=a[i];
-			a[i]=a[min];
-			a[min]=temp;
-		}
+		temp=a[min];     //interchanging the minimum element with first one
+		a[min]=a[i];
+		a[i]=temp;
+
 	}
 	cout<<"The sorted array is \n";
 	for(i=0;i<n;i++)
