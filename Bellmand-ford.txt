@@ -1,7 +1,7 @@
 
 #include <bits/stdc++.h>
 
-
+// Bellmand ford
 struct Edge {
 	int src, dest, weight;
 };
