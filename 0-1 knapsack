@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-
+// 0-1 Knapsack
 int main() {
 	int n,sum;
 	cin>>n>>sum;
