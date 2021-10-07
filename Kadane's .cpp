@@ -2,7 +2,7 @@
 #include<climits>
 #include<algorithm>
 using namespace std;
-
+//Kadanes
 int maxSubArraySum(int a[], int size)
 {
     int max_so_far = max_ending_here = a[0];
