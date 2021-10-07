@@ -8,7 +8,7 @@ using namespace std;
 struct Job
 {
 char id;	 // Job Id
-int dead; // Deadline of job
+int dead; // Deadline of jobbb
 int profit; // Profit if job is over before or on deadline
 };
 

@@ -1,6 +1,7 @@
 import java.util.Scanner;
 class BinarySearch
 {
+   // Binary Search
    public static void main(String args[])
    {
       int counter, num, item, array[], first, last, middle;
