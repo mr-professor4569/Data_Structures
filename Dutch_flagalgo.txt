@@ -1,5 +1,5 @@
 // C++ program to sort an array
-// with 0, 1 and 2 in a single pass
+// with 0, 1 and 2 in a single passss
 #include <bits/stdc++.h>
 using namespace std;
 
