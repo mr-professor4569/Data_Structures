@@ -1,26 +1,10 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-
-
-int partition(int arr[], int low, int high)
-{
-    int pivot = arr[high];
-    int i = (low - 1);  //
-
-    for (int j = low; j <= high- 1; j++)
-    {
-
-        if (arr[j] <= pivot)
-        {
-            i++;    // increment index of smaller element
-            swap(arr[i], arr[j]);
-        }
-    }
-    swap(arr[i + 1], arr[high]);
-    return (i + 1);
-}
-
+// sadflkajsldfk
+// /alskdjflkjasldkjflaskd
+// alskhjfh
+// alsjkdhfl;aksd;lhkf alskd
 
 void quickSort(int arr[], int low, int high)
 {
@@ -36,14 +20,10 @@ void quickSort(int arr[], int low, int high)
     }
 }
 
+// alskjdfl / alskdjfl  
+
+
 /* Function to print an array */
-void printArray(int arr[], int size)
-{
-    int i;
-    for (i=0; i < size; i++)
-        printf("%d ", arr[i]);
-    printf("\n");
-}
 
 // Driver program to test above functions
 int main()
