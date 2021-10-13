@@ -1,10 +1,14 @@
 #include <iostream> 
 using namespace std; 
+// create a node using pointer
+// pointer
 struct node 
 { 
     int data; 
     node *next;
 }; 
+
+// creating nodes
 class linked_list 
 { 
     protected: 
@@ -21,6 +25,9 @@ node* gethead()
 { 
 return head;
 } 
+
+// front of linked list
+
 void front(int n) 
 { 
     node *tmp = new node;
@@ -29,6 +36,9 @@ void front(int n)
     head = tmp; 
     objects++;
 } 
+
+// abcksa fadsf paksdjlf kn
+// alskdf lhasldkf 
 void after(node *a, int value)
 { 
     node* p = new node; 
