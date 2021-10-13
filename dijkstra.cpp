@@ -3,6 +3,10 @@ using namespace std;
 #include <limits.h>
 
 #define V 9
+// this is a very goof algo  
+// everry one shoildd must do it
+// it have lots of things to lern
+// it is a garph algorithm
 
 int minDistance(int dist[], bool sptSet[])
 {
@@ -53,6 +57,11 @@ void dijkstra(int graph[V][V], int src)
 	printSolution(dist);
 }
 
+// this is a very goof algo  
+// everry one shoildd must do it
+// it have lots of things to lern
+// it is a garph algorithm
+
 int main()
 {
 
@@ -70,6 +79,14 @@ int main()
 	dijkstra(graph, 0);
 
 	return 0;
+	
 }
+
+// this is a very goof algo  
+// everry one shoildd must do it
+// it have lots of things to lern
+// it is a garph algorithm
+
+
 
 // This code is contributed by shivanisinghss2110
