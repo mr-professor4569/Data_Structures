@@ -1,22 +1,28 @@
-Problem Statement - https://leetcode.com/problems/number-of-islands/
-
-void DFS(vector<vector<char>>& grid, int i, int j){
-	    if(i < 0 || j < 0 || i >= grid.size() || j >= grid[0].size()) return;
-	    if('0' == grid[i][j]) return;
-	    grid[i][j] = '0';
-	    DFS(grid, i-1, j);
-	    DFS(grid, i+1, j);
-	    DFS(grid, i, j - 1);
-	    DFS(grid, i, j + 1);
-	}
-	int numIslands(vector<vector<char>>& grid) {
-		int counter = 0;
-		for (int i = 0; i < grid.size(); ++i)
-			for (int j = 0; j < grid[i].size(); ++j)
-				if ('1' == grid[i][j])
-				{
-					++counter;
-					DFS(grid, i, j);
-				}
-		return counter;
-	}
+class Solution {
+public:
+    int numIslands(vector<vector<char>>& grid) {
+        int m = grid.size(), n = m ? grid[0].size() : 0, islands = 0, offsets[] = {0, 1, 0, -1, 0};
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                if (grid[i][j] == '1') {
+                    islands++;
+                    grid[i][j] = '0';
+                    queue<pair<int, int>> todo;
+                    todo.push({i, j});
+                    while (!todo.empty()) {
+                        pair<int, int> p = todo.front();
+                        todo.pop();
+                        for (int k = 0; k < 4; k++) {
+                            int r = p.first + offsets[k], c = p.second + offsets[k + 1];
+                            if (r >= 0 && r < m && c >= 0 && c < n && grid[r][c] == '1') {
+                                grid[r][c] = '0';
+                                todo.push({r, c});
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return islands;
+    }
+};
